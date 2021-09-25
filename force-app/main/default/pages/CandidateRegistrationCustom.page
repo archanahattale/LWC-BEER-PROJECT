@@ -1,0 +1,129 @@
+<apex:page controller="CandidateCustomController">
+    
+    <!-- <apex:includeScript value="{!$Resource.Validate}"/>-->
+   
+    <script type="text/javascript">
+    function alerts()
+    {
+        alert('function call');
+         if((document.getElementById('{!$Component.frm.blk.blks.fname}').value==''))
+        {
+            alert('First name field is missing');
+            return false;
+        }
+       if((document.getElementById('{!$Component.frm.blk.blks.lname}').value==''))
+        {
+            alert('Last name field is missing');
+            return false;
+        }
+         
+        if((document.getElementById('{!$Component.frm.blk.blks.state}').value==''))
+        {
+            alert('select the state');
+            return false;
+        }
+          /*if((document.getElementById('{!$Component.frm.blk.blks.country}').value==''))
+        {
+            alert'select the country');
+            return false;
+        }*/
+         if((document.getElementById('{!$Component.frm.blk.blks.dob}').value==''))
+        {
+            alert('DOB field is missing');
+            return false;
+        }
+          if((document.getElementById('{!$Component.frm.blk.blks.salary}').value==''))
+        {
+            alert('expected salary field is missing');
+            return false;
+        }
+        else{
+                return true;
+                        }
+    }
+    </script>
+     <apex:stylesheet value="{!$Resource.CandidateCssFile}"/>
+    
+    <!--<div style="background-color: aqua;padding:20px">
+        <h1 style="font-size:15px">
+            Candidate
+        </h1>
+    </div>-->
+   
+    <apex:form id="frm" styleclass="apexform">
+        
+             <div style="width:auto;background-color:lightblue;padding:10px;border-radius:5px;">
+                    <h1>
+                        Job Wizard 
+                    </h1>
+                    </div>
+                    <div style="text-align:center;">
+        <apex:image url="{!$Resource.CandidateResource}" />
+    </div>
+        <apex:pageBlock id="blk" >
+            <apex:pageBlockSection id="blks">
+              <apex:inputField value="{!Candidate.Salutation__c}"/><br/><br/>
+   			 <apex:inputField value="{!Candidate.First__c}" id="fname"/><br/><br/>
+       		 <apex:inputField value="{!Candidate.Last_Name__c}" id="lname"/> <br/><br/>
+    		 <apex:inputField value="{!Candidate.Email__c}" /> <br/><br/>
+     	     <apex:inputField value="{!Candidate.DOB__c}" id="dob"/> <br/><br/>
+         	 <apex:inputField value="{!Candidate.Application_Date__c}" /> <br/><br/>
+       	     <apex:inputField value="{!Candidate.Expected_Salary__c}" id="salary" /> <br/><br/>
+       	     <apex:inputField value="{!Candidate.Job__c}" /> <br/><br/>
+       		 <apex:inputField value="{!Candidate.Country__c}" id="country"/> <br/><br/>
+       		 <apex:inputField value="{!Candidate.State__c}" id="state" /> <br/><br/>
+      	     <apex:inputField value="{!Candidate.Status__c}" /> <br/><br/>
+            </apex:pageBlockSection>
+            <div style="text-align:center;">
+                <apex:pageBlockButtons location="bottom" styleClass="button">
+                    <apex:commandButton onclick="return alerts();" value="Save" action="{!savecandidate}" />
+                </apex:pageBlockButtons>
+            </div>
+        </apex:pageBlock>
+    </apex:form>   
+</apex:page>
+
+<!--<apex:page controller="CandidateCustomController" standardStylesheets="false">
+     <apex:includeScript value="{!$Resource.Validate}"/>
+        <apex:stylesheet value="{!$Resource.CandidateCssFile}"/>
+  
+
+    <apex:form styleclass="apexform">
+        <apex:pageBlock >
+            <div styleclass="apexmaindiv">
+               
+            
+            <div styleclass="subdiv">
+                 <H1>
+            Job Wizard
+        </H1><br/>
+            </div>
+                
+          <div>
+              <apex:image url="{!$Resource.CandidateResource}" width="420" height="75" styleclass="apeximage"/>
+
+                </div>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save"onclick="return validateform();" action="{!savecandidate}"/>
+                <apex:commandButton value="Cancel" action="{!cancelcandidat}"/>
+                 <apex:commandButton value="Delete" action="{!deletecandidat}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1">
+                <apex:inputField id="theFieldInput" value="{!cand.Salutation__c}" />
+                <apex:inputField value="{!cand.First__c}" />
+                <apex:inputField value="{!cand.Last_Name__c}" />
+                 <apex:inputField value="{!cand.Email__c}" />
+                 <apex:inputField value="{!cand.DOB__c}" />
+                 <apex:inputField value="{!cand.Age__c}" />
+                 <apex:inputField value="{!cand.Application_Date__c}" />
+                 <apex:inputField value="{!cand.Country__c}" />
+                  <apex:inputField value="{!cand.State__c}" />
+                   <apex:inputField value="{!cand.Job__c}" />
+                  <apex:inputField value="{!cand.Status__c}" />
+                <apex:inputField value="{!cand.Expected_Salary__c}" />
+            </apex:pageBlockSection>
+            </div>
+        </apex:pageBlock>
+          
+    </apex:form>
+</apex:page>-->

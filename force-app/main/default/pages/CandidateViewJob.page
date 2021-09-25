@@ -1,0 +1,64 @@
+<apex:page Controller="CandidateClassJob">
+    <apex:form >
+        
+        <apex:pageBlock title="View Job" >
+        
+            
+            <apex:pageBlockSection title="Job_Details">
+                
+                <apex:pageBlockTable columns="6" value="{!jobArchana}" var="job">
+                    <apex:column value="{!job.Job_type__c}"/>
+                    <apex:column value="{!job.Required_Skills__c}"/>
+                    <apex:column value="{!job.Qualification_required__c}"/>
+                    <apex:column value="{!job.Certification_required__c}"/>
+                    <apex:column value="{!job.Manager__c}"/>
+                    <apex:column value="{!job.Number_of_positions__c}"/>
+                    <apex:outputpanel id="counter">
+                        <apex:outputText value="Click Me!: {!job.Number_of_positions__c}"/>
+                        <apex:actionSupport event="onclick"
+                                            action="{!incrementCounter}"
+                                            rerender="counter" status="counterStatus"/>
+                    </apex:outputpanel>
+                    <apex:actionStatus id="counterStatus"
+                                       startText=" (incrementing...)"
+                                       stopText=" (done)"/>
+                </apex:pageBlockTable>
+                
+            </apex:pageBlockSection>
+            <!--<apex:pageBlockButtons >
+<apex:commandButton action="{!save}" value="Save"/>
+</apex:pageBlockButtons>-->
+            <!--</apex:datatable>-->
+            <apex:pageBlockSection title="New Candidate Form"  rendered="true">
+                <apex:inputField value="{!Candidate.Salutation__c}" /><br/><br/>
+                <apex:inputField value="{!Candidate.First__c}" /><br/><br/>
+                <apex:inputField value="{!Candidate.Last_Name__c}" /> <br/><br/>
+                <apex:inputField value="{!Candidate.Email__c}" /> <br/><br/>
+                <apex:inputField value="{!Candidate.DOB__c}" id="dob"/> <br/><br/>
+                <apex:inputField value="{!Candidate.Application_Date__c}" /> <br/><br/>
+                <apex:inputField value="{!Candidate.Expected_Salary__c}" id="salary" /> <br/><br/>
+                <apex:inputField value="{!Candidate.Job__c}" /> <br/><br/>
+                <apex:inputField value="{!Candidate.Country__c}" /> <br/><br/>
+                <apex:inputField value="{!Candidate.State__c}" id="state" /> <br/><br/>
+                <apex:inputField value="{!Candidate.Status__c}" /> <br/><br/>
+                <apex:outputpanel id="counter">
+                    <button type="button" class="btn btn-primary">Primary</button>
+                    <apex:actionSupport event="onclick"
+                                        action="{!save}"
+                                        rerender="out" status=""/>
+                </apex:outputpanel>
+                <apex:actionStatus id="counterStatus1"
+                                   startText=" (incrementing...)"
+                                   stopText=" (done)"/>
+                
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Related List" >
+                <c:relatedlistcomponent records="{!records}" fields="{!fields}"></c:relatedlistcomponent>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

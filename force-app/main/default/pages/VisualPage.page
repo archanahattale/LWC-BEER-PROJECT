@@ -1,0 +1,37 @@
+<apex:page Controller="NewClassJob">
+    <apex:form >
+        <!--<apex:actionFunction name="Avi" action="{!view}" rerender="out"/>-->
+       
+        <apex:pageBlock title="Job_Details">
+            
+<apex:pageBlockTable columns="8" value="{!jobArchana}" var="job" >
+
+                 
+             <apex:column value="{!job.Job_type__c}"/>
+                <apex:column value="{!job.Required_Skills__c}"/>
+                
+                <apex:column value="{!job.Qualification_required__c}"/>
+                <apex:column value="{!job.Certification_required__c}"/>
+                <apex:column value="{!job.Manager__c}"/>
+    <apex:column value="{!job.Id}"/>
+    
+                <apex:column headerValue="View Job">
+                <apex:commandButton value="Save" action="{!view}" reRender="">
+                    <apex:param name="testParam" value="{!job.Id}" assignTo="{!myParam}" />
+
+                    <!--<apex:param name="" value="{!job.Id}" assignTo="{!ID}" />-->
+                    </apex:commandButton>
+    </apex:column>
+            </apex:pageBlockTable>
+            <!--<apex:pageBlockButtons>
+<apex:commandButton action="{!view}" value="Save"/>
+</apex:pageBlockButtons>-->
+        </apex:pageBlock>
+        <apex:pageBlock title="Related List">
+            <!-- <apex:pageBlockTable columns="2" value="{!jobAvinash}" var="job" >-->
+            <c:relatedlistcomponent records="{!records}" fields="{!fields}"></c:relatedlistcomponent>
+                <!-- <apex:commandButton action="{!view}" value="Save"/>-->
+                 <!-- </apex:pageBlockTable>-->
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

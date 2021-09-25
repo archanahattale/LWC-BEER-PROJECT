@@ -1,0 +1,11 @@
+<apex:page >
+  
+  <apex:pageBlock title="Custom Label">
+  <apex:pageblockSection >
+  <apex:outputText >
+  <h1 style="color:pink;"> {!$Label.VFCustomLabel}</h1>
+  </apex:outputText>
+  </apex:pageblockSection>
+  </apex:pageBlock>
+ 
+</apex:page>

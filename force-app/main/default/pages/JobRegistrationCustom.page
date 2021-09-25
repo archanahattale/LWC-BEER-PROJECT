@@ -1,0 +1,89 @@
+<apex:page controller="JobRegistrationCustom">
+        <apex:stylesheet value="{!$Resource.CandidateCssFile}"/>
+    <script type="text/javascript">
+    function alerts()
+    {
+        if((document.getElementById('{!$Component.frm.blk.blks.requiredskill}').value==''))
+        {
+            alert('Required skill field is required');
+            return false;
+        }
+         if((document.getElementById('{!$Component.frm.blk.blks.qualification}').value==''))
+        {
+            alert(''qualification field is required');
+            return false;
+        }
+         if((document.getElementById('{!$Component.frm.blk.blks.certificate}').value==''))
+        {
+            alert('certificate required field is required');
+            return false;
+        }
+        if((document.getElementById('{!$Component.frm.blk.blks.expiredate}').value==''))
+        {
+            alert('expire on field is missing');
+            return false;
+        }
+         if((document.getElementById('{!$Component.frm.blk.blks.hire}').value==''))
+        {
+            alert('hired applicant field is missing');
+            return false;
+        }
+         if((document.getElementById('{!$Component.frm.blk.blks.manager}').value==''))
+        {
+            alert('manager field is required');
+            return false;
+        } 
+         if((document.getElementById('{!$Component.frm.blk.blks.sal}').value==''))
+        {
+            alert('salary field is required');
+            return false;
+        }
+        if((document.getElementById('{!$Component.frm.blk.blks.number}').value==''))
+        {
+            alert('number of position field is required');
+            return false;
+        }
+        if((document.getElementById('{!$Component.frm.blk.blks.description}').value==''))
+        {
+            alert('description field is required');
+            return false;
+        }
+        else{
+                return true;
+               }
+    }
+    </script>
+    
+    <apex:form id="frm" styleclass="apexform">
+          <div style="width:auto;background-color:lightblue;padding:10px;border-radius:5px;">
+                    <h1>
+                        Job Wizard 
+                    </h1>
+                    </div>
+                    <div style="text-align:center;">
+        <apex:image url="{!$Resource.CandidateResource}" />
+    </div>
+        
+        <apex:pageBlock title="Job Details" id="blk">
+            <apex:pageBlockButtons >
+            <apex:commandButton onclick="return alerts();" value="save" action="{!savecandidate}" />
+                <apex:commandButton value="Cancel" action="{!cancelcandidat}"/>
+               <apex:commandButton value="Delete" action="{!cancelcandidat}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection id="blks">
+                <apex:inputField value="{!cand.Job_type__c}" />
+                <apex:inputField value="{!cand.Required_Skills__c}" id="requiredskill" />
+                <apex:inputField value="{!cand.Qualification_required__c}" id="qualification"/>
+                 <apex:inputField value="{!cand.Certification_required__c}" id="certificate"/>
+                 <apex:inputField value="{!cand.Expires_on__c}" id="expiredate" />
+                 <apex:inputField value="{!cand.Hired_Applicants__c}" id="hire"/>
+                <apex:inputField value="{!cand.Manager__c}" id="manager" />
+                <apex:inputField value="{!cand.Salary_offered__c}" id="sal" />
+                 <apex:inputField value="{!cand.Number_of_positions__c}" id="number" />
+                 <apex:inputField value="{!cand.Total_Applicants__c}"  />
+                <apex:inputField value="{!cand.Active__c}" />
+               <apex:inputField value="{!cand.Description__c}"  id="description"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

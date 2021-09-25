@@ -1,0 +1,25 @@
+<apex:page standardController="Job_Archana__c">
+    <apex:form >
+        
+        <apex:pageBlock title="Job" mode="edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="save" action="{!save}"/>  
+                <apex:commandButton value="Cancel" action="{!cancel}"/> 
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:inputField value="{!Job_Archana__c.Job_type__c}" rendered="true"  label="Job Type"/> 
+                <apex:inputField value="{!Job_Archana__c.Required_Skills__c}" rendered="true"  label="Required Skills"/>
+                <apex:inputField value="{!Job_Archana__c.Qualification_required__c}" rendered="true"  label="Qualification Required"/>
+                <apex:inputField value="{!Job_Archana__c.Certification_required__c}" rendered="true" label="Certification_Required"/>
+                <apex:inputField value="{!Job_Archana__c.Active__c}" rendered="true"  label="Active"/>
+                <apex:inputField value="{!Job_Archana__c.Salary_offered__c}" rendered="true"  label="Salary Offered"/> 
+                <apex:inputField value="{!Job_Archana__c.Expires_on__c}" rendered="true"  label="Expires On"/> 
+                <apex:inputField value="{!Job_Archana__c.Manager__c}" rendered="true"  label="Manager"/> 
+                <apex:inputField value="{!Job_Archana__c.Number_of_positions__c}" rendered="true"  label="Number of Positions"/> 
+                <apex:inputField value="{!Job_Archana__c.Description__c}" rendered="true"  label="Description"/> 
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+    </apex:form>
+</apex:page>

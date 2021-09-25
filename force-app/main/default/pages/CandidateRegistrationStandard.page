@@ -1,0 +1,25 @@
+<apex:page standardController="Candidate_Archana__c"  renderAs="PDF">
+    <apex:form >
+      <apex:pageBlock title="Candidate" mode="edit">
+        <apex:pageBlockButtons >
+            <apex:commandButton value="save" action="{!save}"/>
+            <apex:commandButton value="Cancel" action="{!cancel}"/>
+              <apex:commandButton value="	Delete" action="{!delete}"/>
+          </apex:pageBlockButtons>
+   <apex:detail relatedList="false"/>
+       <apex:pageBlockSection >
+                <apex:inputField value="{!Candidate_Archana__c.Salutation__c}" />
+                <apex:inputField value="{!Candidate_Archana__c.First__c}" />
+                <apex:inputField value="{!Candidate_Archana__c.Last_Name__c}" />
+             <apex:inputField value="{!Candidate_Archana__c.Email__c}" />
+              <apex:inputField value="{!Candidate_Archana__c.DOB__c}"/>
+              <apex:inputField value="{!Candidate_Archana__c.Application_Date__c}" />
+                <apex:inputField value="{!Candidate_Archana__c.Expected_Salary__c}" />
+                <apex:inputField value="{!Candidate_Archana__c.Job__c}" />
+                <apex:inputField value="{!Candidate_Archana__c.Country__c}" />
+                <apex:inputField value="{!Candidate_Archana__c.State__c}" />
+               <apex:inputField value="{!Candidate_Archana__c.Status__c}" />
+        </apex:pageBlockSection>
+     </apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,53 @@
+<apex:page Controller="ClassJob">
+    <apex:form >
+        
+        
+        <apex:pageBlock title="Job_Details">
+
+                <apex:pageBlockTable columns="6" value="{!jobObj}" var="c">
+                   
+                 
+                    <apex:column value="{!c.Job_type__c}"/>
+                    <apex:column value="{!c.Required_Skills__c}"/>
+                    <apex:column value="{!c.Qualification_required__c}"/>
+                    <apex:column value="{!c.Certification_required__c}"/>
+                    <apex:column value="{!c.Manager__c}"/>
+                    <apex:column value="{!c.Number_of_positions__c}"/>
+                </apex:pageBlockTable>
+               
+                
+                
+           
+            
+        </apex:pageBlock>
+        
+               
+         <apex:pageBlock title="Candidate Details" >
+            <apex:pageBlockSection title="Details">
+              <apex:inputField value="{!Candidate.Salutation__c}"/><br/><br/>
+   			 <apex:inputField value="{!Candidate.First__c}"/><br/><br/>
+       		 <apex:inputField value="{!Candidate.Last_Name__c}"/> <br/><br/>
+    		 <apex:inputField value="{!Candidate.Email__c}" /> <br/><br/>
+     	     <apex:inputField value="{!Candidate.DOB__c}"/> <br/><br/>
+         	 <apex:inputField value="{!Candidate.Application_Date__c}" /> <br/><br/>
+       	     <apex:inputField value="{!Candidate.Expected_Salary__c}" /> <br/><br/>
+       	     <apex:inputField value="{!Candidate.Job__c}" /> <br/><br/>
+       		 <apex:inputField value="{!Candidate.Country__c}"/> <br/><br/>
+       		 <apex:inputField value="{!Candidate.State__c}" /> <br/><br/>
+      	     <apex:inputField value="{!Candidate.Status__c}" /> <br/><br/>
+            </apex:pageBlockSection>
+                                      <apex:commandButton action="{!savecandidate}" value="Save"/>
+
+          
+        </apex:pageBlock>
+    
+        
+        <apex:pageBlock title="Related List">
+            
+            <c:relatedlistcomponent records="{!records}" fields="{!fields}"></c:relatedlistcomponent>
+            
+            
+        </apex:pageBlock>
+        
+    </apex:form>
+</apex:page>
