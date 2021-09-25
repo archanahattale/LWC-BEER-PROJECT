@@ -1,0 +1,6 @@
+<apex:component >
+  
+  <apex:attribute name="btnText" description="Text on button" type="string" required="true" />
+   <apex:attribute name="btnColor" description=" Color of Text on button" type="string" required="true" />
+<apex:commandButton value="{!btnText}" style="color:{!btnColor}"/>
+</apex:component>
