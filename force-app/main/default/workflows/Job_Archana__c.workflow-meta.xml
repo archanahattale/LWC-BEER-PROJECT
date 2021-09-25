@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Candidate_Hiring</fullName>
+        <description>Candidate Hiring</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>archanahattale1999@gmail.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/SendEmail</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>DeactiveTheJob</fullName>
+        <field>Active__c</field>
+        <literalValue>1</literalValue>
+        <name>DeactiveTheJob</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>JobActive</fullName>
+        <field>Active__c</field>
+        <literalValue>0</literalValue>
+        <name>JobActive</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>deactivejob</fullName>
+        <field>Active__c</field>
+        <literalValue>0</literalValue>
+        <name>deactivejob</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>ActiveTheJobDeactive</fullName>
+        <actions>
+            <name>DeactiveTheJob</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Activate the job if not activated</description>
+        <formula>Number_of_positions__c   &gt;  Hired_Applicants__c</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>EmailsentToManager</fullName>
+        <actions>
+            <name>Candidate_Hiring</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <formula>Number_of_positions__c  =  Hired_Applicants__c</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <offsetFromField>Job_Archana__c.JobWorkflow__c</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>JobActive</fullName>
+        <actions>
+            <name>JobActive</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>Hired_Applicants__c  =  Number_of_positions__c</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>deactivejob</fullName>
+        <actions>
+            <name>deactivejob</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>Number_of_positions__c  =  Hired_Applicants__c</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>
