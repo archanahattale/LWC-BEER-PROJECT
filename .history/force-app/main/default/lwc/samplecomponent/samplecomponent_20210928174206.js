@@ -4,6 +4,6 @@ export default class Samplecomponent extends LightningElement {
     @track greeting="archana";
     greetUser(event){
         let txtInput=this.querySelector(",txtInput");
-        this.greeting=txtInput.value;
+        // this.greeting=txtInput.value;
        }
 }

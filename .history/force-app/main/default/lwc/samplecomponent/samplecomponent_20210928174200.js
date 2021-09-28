@@ -6,4 +6,4 @@ export default class Samplecomponent extends LightningElement {
         let txtInput=this.querySelector(",txtInput");
         this.greeting=txtInput.value;
        }
-}
+// }
