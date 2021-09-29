@@ -1,4 +1,4 @@
-<aura:application extends="force:slds">
+<aura:application>
 <!-- <c:samplecomponent/> -->
 
 <c:todolist/>

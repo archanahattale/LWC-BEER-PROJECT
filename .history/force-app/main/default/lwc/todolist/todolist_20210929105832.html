@@ -1,0 +1,21 @@
+<template>
+<lightning-card
+title="Todo-List"
+icon-name="standard-product_consumed">
+<div class="slds-m-around_medium">
+    <lightning-input label="Description"
+ 
+<lightning-input label="Priority"
+onchange={handlechangePriority}
+type="checkbox"
+checked={Priority}>
+</lightning-input>
+<lightning-button
+variant="brand"
+label="Add Todo"
+onclick={handleSave}>
+</lightning-button>
+<c-todo-list todos={todos}></c-todo-list>
+</div>
+</lightning-card>
+</template>
