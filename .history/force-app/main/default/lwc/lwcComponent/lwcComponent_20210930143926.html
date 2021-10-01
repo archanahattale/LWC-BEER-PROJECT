@@ -1,0 +1,34 @@
+<template>
+    <div class="slds-var-m-around-large">
+        <lightning-input
+        label="Enter text" 
+        required
+        value={inputText}
+        onclick={handleClick}>
+
+        </lightning-input>
+        <p>
+            {inputText}
+        </p>
+        <p>{greeting}</p>
+        <p>
+            <lightning-button label="ClickMe" value="clickMe" onclick={handleSubmit}></lightning-button>
+        </p>
+    </div>
+    <div class="slds-var-m-around-large" >
+        
+                <template for:each={result}  for:item="contact">
+                    
+                    <p key={contact.Id}>
+                        <lightning-layout horizontal-align="space">
+                            <lightning-layout-item>
+                           {contact.Id}
+                           {contact.Name}
+                           {contact.Email}
+                    </p>
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+        
+    </div>
+</template>

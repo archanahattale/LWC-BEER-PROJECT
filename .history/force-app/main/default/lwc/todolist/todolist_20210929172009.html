@@ -1,0 +1,51 @@
+<!-- <template>
+<lightning-card
+title="Todo-List"
+icon-name="standard-product_consumed">
+<div class="slds-m-around_medium">
+    <lightning-input label="Description"
+            onchange={handlechangeDescription}
+            value={Description}>
+</lightning-input>
+<lightning-input label="Priority"
+        onchange={handlechangePriority}
+        type="checkbox"
+        checked={Priority}>
+</lightning-input>
+<lightning-button
+        variant="brand"
+        label="Add Todo"
+        onclick={handleSave}>
+</lightning-button>
+         <c-todo-List todos={todos}></c-todo-List> 
+</div>
+</lightning-card>
+</template> -->
+
+<template>
+    <lightning-card
+    title="todo list"
+   style="width: 800px;">
+    <lightning-button-Icon 
+    slot="actions"
+    icon-name="utility:sync"
+    title="Sync"
+    tooltip="Display your account settings"
+    alternative-text="Hidden text for assistive technology">
+</lightning-button-Icon> 
+<lightning-layout>
+    <lightning-layout-item padding="around-small">
+        <ul class="slds-has-dividers_around-space">
+            <li class="slds-item">Item 1
+                <lightning:icon 
+                icon-name="utility:delete" 
+                alternative-text="Delete" title="Delete" />
+            </li>
+            <li class="slds-item">Item 2</li>
+            <li class="slds-item">Item 3</li>
+          </ul>
+    </lightning-layout-item>
+</lightning-layout>
+
+</lightning-card>
+</template>

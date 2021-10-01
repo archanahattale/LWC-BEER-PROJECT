@@ -1,0 +1,18 @@
+<template>
+    <div class="slds--m-around_large">
+        <lightning-input
+        label="Enter text" 
+        required
+        value={inputText}
+        onclick={handleClick}>
+
+        </lightning-input>
+        <p>
+            {inputText}
+        </p>
+        <p>{greeting}</p>
+        <p>
+            <lightning-button></lightning-button>
+        </p>
+    </div>
+</template>

@@ -1,0 +1,63 @@
+
+<template>
+    
+    <div class="slds-var-m-around-large">
+        <lightning-input
+        label="Enter text" 
+        required
+        value={inputText}
+        onclick={handleClick}>
+
+        </lightning-input>
+        <p>
+            {inputText}
+        </p>
+        <p>{greeting}</p>
+        <p>
+            <lightning-button label="ClickMe" value="clickMe" onclick={handleSubmit}></lightning-button>
+        </p>
+    </div>
+    
+      
+    <!-- <template for:each={result} for:item="contact">
+
+        <tr key={contact.Id} style="border: dotted;"> 
+                          
+            <td key={contact.Id}>                                
+                {contact.Id}
+            </td>
+            <td key={contact.Id}>
+                {contact.Name}
+            </td>
+            <td key={contact.Id}>
+                {contact.Email}
+            </td>
+           
+        </tr>
+                                                                          
+    </template> -->
+    <div>
+        
+        <table style="padding: 10px; border:solid;">
+            <th style="border: dotted;">Id</th>
+            
+            <tr>
+                <template for:each={result}  for:item="contact">
+                    
+                    <p key={contact.Id}>
+                       
+                         
+                         {contact.Id}
+                         
+                           {contact.Name}
+                           {contact.Email}
+                    </p>
+                </template>
+            </tr>
+            
+        </table>
+               
+          
+        
+    </div>
+</template>
