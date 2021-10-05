@@ -2,6 +2,7 @@
 <!-- <c:samplecomponent/> -->
 
 <!-- <c:todolist/>-->
-<!-- <c:lwcComponent/>  -->
-<c:parentComponent/>
+<c:lwcComponent/> 
+<!-- <c:parentComponent/> -->
+<!-- <c:bookingmanager/> -->
 </aura:application>	
